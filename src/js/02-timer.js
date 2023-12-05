@@ -12,8 +12,6 @@ const secondsEl = document.querySelector('[data-seconds]');
 
 startBtn.disabled = true;
 let chosenDate = null;
-let currentDate = null
-let timeToFinish = 0;
 let timerId = 0;
 
 flatpickr(dateTimeInput, {
@@ -38,7 +36,7 @@ startBtn.addEventListener('click', event => {
     dateTimeInput.disabled = true;
 
     timerId = setInterval(() => {
-        timeToFinish = chosenDate.getTime() - Date.now();
+        const timeToFinish = chosenDate.getTime() - Date.now();
 
         const { days, hours, minutes, seconds } = convertMs(timeToFinish);
 
